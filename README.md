@@ -28,8 +28,9 @@ uvicorn main:app --reload
 Then go to: http://127.0.0.1:8000/docs
 
 ## 🌐 Environment
+Add a .env file with OPENAI_API_KEY
 ```bash
-OPENAI_API_KEY=your-openai-api-key-here (I can send my key if needed)
+OPENAI_API_KEY=your-openai-api-key-here #(I can send my key if needed)
 ```
 ---
 
