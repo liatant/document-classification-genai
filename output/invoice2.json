@@ -1,14 +1,17 @@
 {
-  "document_id": "6c329552-c675-4338-89bb-52fb88b9a30d",
+  "document_id": "9df9c66c-bff6-4ed9-8108-35b78ea6f216",
   "filename": "invoice2.pdf",
   "classification": {
     "type": "invoice",
-    "confidence": 0.0
+    "confidence": 1.0
   },
   "metadata": {
+    "vendor": "Hote! Amarìn",
+    "amount": "9.390,26 HRK",
+    "due_date": "03.09.2021",
     "line_items": [
       {
-        "description": "110 tägücher Mietpreis & Voüpension-premium",
+        "description": "110 tägücher Mietpreis & Voüpension-premium room",
         "quantity": 1,
         "unit_price": "9.249,26 HRK"
       },
@@ -20,7 +23,7 @@
       {
         "description": "Istrian beach house II -01.09.2021.",
         "quantity": 2,
-        "unit_price": "4.624,63 HRK"
+        "unit_price": "51,00 HRK"
       }
     ]
   }
