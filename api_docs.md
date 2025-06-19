@@ -52,7 +52,7 @@ print(response.json())
 
 ## 📄 `GET /documents/{id}`
 
-**Returns full metadata and classification result for a previously uploaded document. The response includes semantic descriptions of fields and Structured to be easily consumable by AI agents, in the format: Key, value, description.**
+**Returns full metadata and classification result for a previously uploaded document. The response includes semantic descriptions of fields and Structured to be easily consumable by AI agents, in the format: Key, value, description. For better UX, use the document name (without .pdf) to get its metadata.**
 
 ### 🔸 Request
 
