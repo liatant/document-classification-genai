@@ -8,7 +8,8 @@ This FastAPI app allows uploading PDF documents and classifies them as:
 It uses OpenAI GPT to:
 - Classify the document
 - Extract relevant metadata
-- Provide a confidence score based on extracted fields
+
+It provides a confidence score based on extracted fields
 
 ---
 
@@ -27,8 +28,9 @@ uvicorn main:app --reload
 Then go to: http://127.0.0.1:8000/docs
 
 ## 🌐 Environment
-
+```bash
 OPENAI_API_KEY=your-openai-api-key-here (I can send my key if needed)
+```
 ---
 
 ## 📡 Endpoints
@@ -50,7 +52,7 @@ Get actionable items with optional filters: `status`, `deadline`, `priority`. *(
 PDF content is extracted using the **PyMuPDF** package, which reads page-level text into a string for LLM processing.
 
 ### 🧪 Zero-Shot Classification and Metadata Extraction
-We use **GPT-3.5-turbo** in a zero-shot setting with a carefully designed prompt. The model is instructed to:
+I used **GPT-3.5-turbo** in a zero-shot setting with a carefully designed prompt. The model is instructed to:
 
 - Classify the document using its general knowledge of layout, terminology, and tone.
 - Validate or revise its decision using core metadata fields:
@@ -69,11 +71,12 @@ After classification, extended fields are extracted:
 - Invoice → `line_items`
 - Earnings Report → `executive_summary`
 
+These fields are extracted or generated after the classification so they will not be part of the classification decision.
+
 🧩 This hybrid logic improves robustness by first applying semantic understanding and then validating with structured cues.
 
-### ❓ Why Zero-Shot?
-- Core features guide better than a few static examples.
-- GPT's general understanding is strong if instructions are clear.
+### Zero-Shot and not Few-shot
+I chose to use zero-shot since I believe (and also experimented) that core features guide better than a few static examples. Examples may not be general enough of there are different languages, formats, structures of the documents. In addition, the prompt is very detailed (I worked alot on improving it) and GPT's general understanding is strong if instructions are clear.
 
 ---
 
@@ -87,35 +90,35 @@ After experimenting with local and hosted models, GPT-3.5-turbo was chosen due t
 ---
 
 ### 🎯 Confidence Score
-Calculated as the ratio of non-empty, valid core fields to total expected fields. `"n/a"`, `"unknown"`, and `"none"` are treated as missing.
+Calculated as the ratio of non-empty, valid core fields to total expected fields. `"n/a"`, `"unknown"`, and `"none"` are treated as missing. For example, in document from type `contract`, if  `parties` and  `effective_date` were found but `termination_date` was not found, then the confidence is 0.67. The confidence could be calculated in other ways as well. For example, I could use few llms and calculate the confidence according to the agreement between them.
 
 ---
 
 ## 🤖 AI-Powered Features for Factify
-
+(The ideas are mine, gpt just helped to phrase it nicely)
 ### 🔹 Feature 1: Temporal Document Analytics & Comparison
 
 **Use Case:**  
-Compare documents from the **same vendor/party** over time. Understand financial and contractual evolution across versions.
+Compare documents from the **same vendor/party/company** over time. Understand financial and contractual evolution across versions.
 
 **Examples:**
-- Invoices → detect rising vendor prices or changing due dates
-- Contracts → track modified clauses like payment terms
+- Invoices → detect increasing vendor prices or changing due dates
+- Contracts → track modified terms like payments
 - Earnings Reports → visualize revenue/profit trends quarterly
 
 **Technical Approach:**
-1. **Group by Entity**: Use fuzzy matching or NER to link same vendors/companies
+1. **Group by Entity**: Use the extracted metadata to link same vendors/companies
 2. **Time Series Creation**: Sort by `effective_date`, `reporting_period`, or invoice date
 3. **Semantic Diffing**: Embed key_terms or summaries → cosine similarity highlights clause changes
 4. **Visualization + Narration**:
    - Plot revenue growth or term shifts
-   - Use LLM to generate summaries: e.g., “Net income dropped by 17% vs Q2”
+5. Use LLM to generate summaries: e.g., “Net income dropped by 17% vs Q2”
+6. Cluster similar vendors or companies using their extracted metadata (on the original documents) or the data after processing (changes in prices, trends etc.)
 
 **Business Value:**
 - 📈 Strategic insight from repeated vendors
 - ✅ Audit compliance over time
-- 🤝 Improved negotiation using document history
-- 📊 Feed leadership dashboards with real document data
+- 📊 Feed dashboards with structured document data
 
 ---
 
