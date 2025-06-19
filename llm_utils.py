@@ -5,7 +5,9 @@ from pathlib import Path
 from openai import OpenAI
 from dotenv import load_dotenv
 
-load_dotenv()
+from pathlib import Path
+load_dotenv(dotenv_path=Path(__file__).parent / ".env")
+
 
 # Output directory
 OUTPUT_DIR = Path("output")
@@ -75,7 +77,7 @@ def classify_and_extract(text: str, doc_id: str, filename: str) -> dict:
     f"Document:\n{text[:2000]}"
 )
 
-
+    print(f"API_KEY loaded: {API_KEY is not None}")
     client = OpenAI(api_key=API_KEY)
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
