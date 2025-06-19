@@ -96,7 +96,8 @@ Calculated as the ratio of non-empty, valid core fields to total expected fields
 ---
 
 ## 🤖 AI-Powered Features for Factify
-(The ideas are mine, gpt just helped to phrase it nicely)
+(The ideas are mine, gpt just helped to phrase it nicely).
+Both features will need a preprocessing of normalizing values (such as company, vendors names, key terms), date formatting, data cleaning if needed, etc. 
 ### 🔹 Feature 1: Temporal Document Analytics & Comparison
 
 **Use Case:**  
