@@ -1,0 +1,19 @@
+{
+  "document_id": "b559df17-951a-4288-81d6-c4c4cf1303ba",
+  "filename": "Earnings.PDF",
+  "classification": {
+    "type": "earnings report",
+    "confidence": 1.0
+  },
+  "metadata": {
+    "reporting_period": "Q1 2025",
+    "key_metrics": {
+      "revenue": "$90,234M",
+      "gross profit": "$30,606M",
+      "net income": "$34,540M",
+      "operating income": "$41,789M",
+      "earnings per share (EPS)": "$2.81"
+    },
+    "executive_summary": "Alphabet reported strong year-over-year growth in revenue, gross profit, and net income for Q1 2025. Operating income also increased significantly, leading to a higher earnings per share compared to the same period last year."
+  }
+}

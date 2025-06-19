@@ -1,0 +1,21 @@
+{
+  "document_id": "a9f16c66-fb31-49cb-956e-5e7c01ed8814",
+  "filename": "invoice1.pdf",
+  "classification": {
+    "type": "invoice",
+    "confidence": 1.0
+  },
+  "metadata": {
+    "vendor": "Example, LLC",
+    "amount": "$19.00",
+    "due_date": "March 25, 2024",
+    "line_items": [
+      {
+        "item": "Subscription",
+        "unit_cost": "$19.00",
+        "quantity": 1,
+        "amount": "$19.00"
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "document_id": "6c329552-c675-4338-89bb-52fb88b9a30d",
+  "filename": "invoice2.pdf",
+  "classification": {
+    "type": "invoice",
+    "confidence": 0.0
+  },
+  "metadata": {
+    "line_items": [
+      {
+        "description": "110 tägücher Mietpreis & Voüpension-premium",
+        "quantity": 1,
+        "unit_price": "9.249,26 HRK"
+      },
+      {
+        "description": "110 Welcome bar hote! Amarin - 01.09.2021.",
+        "quantity": 1,
+        "unit_price": "90,00 HRK"
+      },
+      {
+        "description": "Istrian beach house II -01.09.2021.",
+        "quantity": 2,
+        "unit_price": "4.624,63 HRK"
+      }
+    ]
+  }
+}

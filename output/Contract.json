@@ -1,0 +1,22 @@
+{
+  "document_id": "0baa5b17-6070-435b-b9bb-0a2f79eeceaa",
+  "filename": "Contract.PDF",
+  "classification": {
+    "type": "contract",
+    "confidence": 0.67
+  },
+  "metadata": {
+    "parties": [
+      "EMERALD HEALTH NATURALS, INC.",
+      "DR. GAETANO MORELLO N.D. INC."
+    ],
+    "effective_date": "10 day of January 2019",
+    "termination_date": "unknown",
+    "key_terms": [
+      "Scope of Engagement",
+      "Services",
+      "Reporting and Oversight Responsibility",
+      "Commitment of the Contractor"
+    ]
+  }
+}
